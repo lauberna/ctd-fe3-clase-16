@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from "./components/Card"
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [beers, setBeers] = useState([])
@@ -12,12 +13,13 @@ const Home = () => {
 
   useEffect(()=>{
     getBeers()
-  })
+  },[])
 
   return (
+    
     <div className='grid'>
         {beers.length 
-           ? beers.map(beer => (<Card data={beer} />))
+           ? beers.map((beer, id) => (<Link key={id} to={"/beer/"+beer.id}><Card  data={beer} id={id} /></Link>))
            : null
         }
     </div>
