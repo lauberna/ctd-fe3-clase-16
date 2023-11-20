@@ -9,5 +9,5 @@ describe("test", () => {
     render(<Navbar/>)
     const tittle = screen.getByText(/Home/i)
     expect(tittle).toBeDefined();
-  });
-});
+  })
+})
